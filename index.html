@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Chynna Mariel ❤️</title>
+    <style>
+        /* --- CSS STYLES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* --- CONTAINER STYLES --- */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- 1. GIFT BOX --- */
+        .gift-container {
+            position: relative;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s;
+        }
+        .gift-container:hover { transform: scale(1.05); }
+
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background: #ff3b61;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .gift-lid {
+            width: 170px;
+            height: 40px;
+            background: #ff224b;
+            border-radius: 5px;
+            position: absolute;
+            top: -30px;
+            left: -10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 2;
+            transition: transform 0.5s ease;
+        }
+        .ribbon-v {
+            position: absolute;
+            left: 50%; top: 0; bottom: 0;
+            width: 30px; background: white;
+            transform: translateX(-50%);
+        }
+        .ribbon-h {
+            position: absolute;
+            top: 50%; left: 0; right: 0;
+            height: 30px; background: white;
+            transform: translateY(-50%);
+        }
+        .click-text {
+            position: absolute;
+            bottom: -50px;
+            width: 100%;
+            text-align: center;
+            color: #ff3b61;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+        }
+
+        /* --- 2. THE LETTER (New Section) --- */
+        .letter-card {
+            display: none;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .letter-content {
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+            max-height: 300px; /* limits height */
+            overflow-y: auto; /* allows scrolling if text is long */
+        }
+        
+        .letter-header {
+            font-size: 1.5rem;
+            color: #ff3b61;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .next-btn {
+            background: #ff3b61;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* --- 3. THE QUESTION --- */
+        .question-card {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 90%;
+            width: 350px;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .question-card h1 { color: #ff3b61; }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            height: 50px; /* Space for buttons */
+        }
+
+        .yes-btn {
+            background: #ff3b61; color: white;
+            padding: 10px 30px; border-radius: 50px; border: none;
+            font-size: 1.1rem; cursor: pointer;
+        }
+        .no-btn {
+            background: #e0e0e0; color: #333;
+            padding: 10px 30px; border-radius: 50px; border: none;
+            font-size: 1.1rem; cursor: pointer;
+        }
+
+        /* --- 4. SUCCESS --- */
+        .success-card {
+            display: none;
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            width: 350px;
+            animation: fadeIn 1s ease;
+        }
+        .success-card h2 { color: #ff3b61; }
+        .details {
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        /* Utilities */
+        .gif-img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
+        .hidden { display: none !important; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div id="phase-1" class="gift-container" onclick="openGift()">
+            <div class="gift-lid" id="lid"><div class="ribbon-v"></div></div>
+            <div class="gift-box">
+                <div class="ribbon-v"></div>
+                <div class="ribbon-h"></div>
+            </div>
+            <div class="click-text">For Chynna Mariel 🎁</div>
+        </div>
+
+        <div id="phase-2" class="letter-card">
+            <div class="letter-header">Dear Chynna Mariel,</div>
+            <div class="letter-content">
+                I wanted to take a moment to just pause and tell you how incredibly grateful I am to have you in my life. Every single day with you is a reminder of how lucky I am. You bring so much light, warmth, and joy into my world, in ways you probably don't even realize.
+
+Thank you for being exactly who you are. I'm sorry if I am being naughty to you sometimes and I'm sorry for all my flaws. I appreciate your endless support, your beautiful smile that always has the power to turn my day around, and the kind, gentle way you love me. I notice all the little things you do to make me smile, and I am so thankful for the big ways you show up for us. You are my safe space, my favorite person, and my greatest blessing. Life is simply just better when we are navigating it together. I love you bebibuuuu!❤️
+            </div>
+            <button class="next-btn" onclick="showQuestion()">Continue &rarr;</button>
+        </div>
+
+        <div id="phase-3" class="question-card">
+            <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" class="gif-img" alt="Cute Bear">
+            <h1>So...</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Will you be my Valentine? 🌹</p>
+            <div class="btn-group">
+                <button class="yes-btn" onclick="sayYes()">YES!</button>
+                <button class="no-btn" id="noBtn" onmouseover="dodge()" onclick="dodge()">No</button>
+            </div>
+        </div>
+
+        <div id="phase-4" class="success-card">
+            <img src="https://media.giphy.com/media/TdfyKrN7HGTIY/giphy.gif" class="gif-img" alt="Happy Cat">
+            <h2>YAY! ❤️</h2>
+            <p>I can't wait to celebrate with you!</p>
+            <div class="details">
+                
+                
+            
+            </div>
+            <p style="margin-top: 15px; font-style: italic; color: #888;">Love, Raven</p>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        function openGift() {
+            const lid = document.getElementById('lid');
+            const p1 = document.getElementById('phase-1');
+            const p2 = document.getElementById('phase-2');
+            
+            // Animate lid
+            lid.style.transform = "translateY(-100px) rotate(-10deg)";
+            
+            setTimeout(() => {
+                p1.classList.add('hidden');
+                p2.style.display = 'block'; // Show Letter
+            }, 600);
+        }
+
+        function showQuestion() {
+            const p2 = document.getElementById('phase-2');
+            const p3 = document.getElementById('phase-3');
+            
+            p2.classList.add('hidden');
+            p3.style.display = 'block'; // Show Question
+        }
+
+        function dodge() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function sayYes() {
+            const p3 = document.getElementById('phase-3');
+            const p4 = document.getElementById('phase-4');
+            
+            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+            
+            p3.classList.add('hidden');
+            p4.style.display = 'block'; // Show Success
+        }
+    </script>
+</body>
+</html>
